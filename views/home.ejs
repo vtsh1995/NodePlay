@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <main>
+        This is the home page
+        <div>
+            <% if(title.length >0 ) {%>
+                <% title.map((item) =>{ %>
+                    <div>
+                        Entered text : <%= item.message %>
+                    </div>
+                    <div>
+                        <img src="<%= item.imageurl %>"
+                    </div>
+                    <a href="/product/<%= item._id %>"> View details</a>
+                    <% if (isAuthenticated) { %>
+                        <div>status : Authenticated</div>
+                    <% } %>
+                    <hr>
+                <% }) %>
+                <div> 
+                    <a href="/login">Click to Login</a>
+                </div>
+                <hr>
+                <div>
+                    <a href="/signup">Signup</a>
+                </div>
+                <div>
+                   <a href="/download">Download image</a>
+                </div>
+                <div>
+                    <a href="/?page=1">1</a>
+                    <a href="/?page=2">2</a>
+                    <a href="/?page=3">3</a>
+                </div>
+            <% } else {%>
+                <div> no data</div>
+            <% } %>
+        </div>
+    </main>
+</body>
+</html>

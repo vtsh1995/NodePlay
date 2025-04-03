@@ -1,0 +1,19 @@
+Name : 'Node play CI'
+
+On :
+  push: 
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      name:
+      uses:
+
+      name:
+      uses:
+
+      name:
+      runs: 
+      with:
