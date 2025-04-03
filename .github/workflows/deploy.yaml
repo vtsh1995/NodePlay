@@ -40,11 +40,6 @@ jobs:
           nohup npm run start & 
           sleep 5 
           
-      - name: Install Puppeteer Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libnss3 libatk1.0-0 libx11-xcb1 libdrm2 libgbm1 libasound2 libxcomposite1 libxrandr2 libxi6 libxcursor1 libxdamage1
-
       - name: Run test  
         run: |
           npm run test  
