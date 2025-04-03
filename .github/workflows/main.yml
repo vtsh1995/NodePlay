@@ -1,0 +1,42 @@
+name : 'NodeCI'
+
+on:
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    env:
+      port: 3000
+      NODE_ENV: CI
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: setup node env
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.20.4"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: start server
+        run: |
+          nohup npm run start &
+
+      - name: Run test  
+        run: |
+          npm run test  
+
+      - name: stop server
+        run: |
+          pkill -f node    
+
