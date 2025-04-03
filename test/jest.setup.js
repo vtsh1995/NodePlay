@@ -16,5 +16,5 @@ beforeAll(async ()=>{
 
 afterAll(async()=>{
     await close();
-    await browser.close();
+    await browser.close()
 })
